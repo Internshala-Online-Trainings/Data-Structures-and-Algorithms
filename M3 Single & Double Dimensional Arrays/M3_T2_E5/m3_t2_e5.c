@@ -1,39 +1,44 @@
+// M3_T2_E5
 #include <stdio.h>
-int main()
-{
-	float num[10]; // declaration of array
-	float smallest, sec_smallest ;
-	int c ;
-	for (c=0;c<10;++c)   // loop for reading values into the array
-	{
-		printf("num[%d] = ",c);
-		scanf("%f",&num[c]) ;
-	    }  
-	  smallest=num[0]; // storing the first element into variable smallest
-	 
-	  /*following is the logic to find out the smallest value in the array.
+
+int main() {
+    
+    float arr[10]; // declaration of array
+    float small1, small2;
+    int count;
+    
+    // loop for reading values into the array
+    for(count=0; count<10; count++){
+        printf("Enter value of %d element: ", count);
+        scanf("%f", &arr[count]);
+    }
+    
+    // storing the first element into variable smallest
+    small1=arr[0], small2=arr[0];
+    
+    /*following is the logic to find out the smallest value in the array.
 	  The counter variable for subscript c starts from 1 and not 0 as 
-	  first element has already been extracted and stored into variable smallest */
-	    for (c=1;c<10;++c)
-	  {
-	    if (num[c]<smallest)  // if current element smaller tan smallest then store it into smallest
-	 	 			   smallest=num[c] ;
-	  	  }
-	  	  printf("Smallest = %.2f", smallest) ;
-	  	  getch()  ;
-/* now after finding the smallest element let's find second smallest  
-
-*/	  
-	 if (smallest==num[0])  // if first element was smallest
-	 sec_smallest=num[1];   // then start from second element
-else
-	  sec_smallest=num[0];  //storing the first element into sec_smallest
-	  for (c=1;c<10;++c)    // loop for finding second smallest
-	  {
-	  	if (num[c]<sec_smallest && num[c]!=smallest)  // if current element smaller than smallest then store it into smallest 
-	  	sec_smallest=num[c] ;
-	  	  }
-	  	  // printing the smallest and second smallest 
-printf("Smallest element = %.2f\nSecond smallest = %.2f",smallest,sec_smallest);	
-
+	  first element has already been extracted and stored into variable
+	  smallest */
+    for(count=0; count<10; count++){
+        // if current element smaller tan smallest then store it into smallest
+        if(arr[count]<small1)
+        {
+            small1=arr[count];
+        }
+    }
+    
+    /* now after finding the smallest element let's find second smallest */
+    for(count=0; count<10; count++)
+    {
+        // if current element smaller than smallest then store it into smallest
+        if(arr[count]<small2 && arr[count]>small1){
+            small2=arr[count];
+        }
+    }
+	
+    // printing the smallest and second smallest 
+    printf("Smallest value is: %.2f \nSecond smallest value is: %.2f", small1, small2);
+    
+    return 0;
 }
